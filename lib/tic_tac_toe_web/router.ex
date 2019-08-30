@@ -16,7 +16,8 @@ defmodule TicTacToeWeb.Router do
   scope "/", TicTacToeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PlayerController, :new
+    post "/create", PlayerController, :create
   end
 
   # Other scopes may use custom stacks.
