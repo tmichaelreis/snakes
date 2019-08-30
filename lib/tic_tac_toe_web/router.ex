@@ -20,6 +20,7 @@ defmodule TicTacToeWeb.Router do
 
     get "/", PlayerController, :new
     post "/create", PlayerController, :create
+    get "/waiting_room", WaitingRoomController, :index
   end
 
   # Other scopes may use custom stacks.

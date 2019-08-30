@@ -7,7 +7,8 @@ defmodule TicTacToeWeb.PlayerController do
   end
 
   def create(conn, %{"player" => %{"name" => name}}) do
-    # Establish LiveView connection & do some presence stuff
-    text(conn, "Hi #{name}. This will render an interactive game queue")
+    conn
+    |> put_session(:username, name)
+    |> redirect(to: "/waiting_room")
   end
 end
