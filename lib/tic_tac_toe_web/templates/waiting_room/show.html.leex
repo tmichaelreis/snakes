@@ -1,1 +1,8 @@
 <h2>Hello, <%= @username %></h2>
+
+<section class="users">
+  <h3>Users:</h3>
+  <%= for player <- @players do %>
+    <p><%= player %></p>
+  <% end %>
+</section>
