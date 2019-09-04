@@ -19,19 +19,34 @@ defmodule TicTacToeWeb.WaitingRoomLive do
     {:ok,
      assign(socket,
        username: username,
-       players: list_players()
+       players: list_players(username)
      )}
   end
 
   def handle_info(
         %{event: "presence_diff", payload: state},
-        socket = %{assigns: %{players: players}}
+        socket = %{assigns: %{username: username}}
       ) do
-    {:noreply, assign(socket, players: list_players())}
+    {:noreply, assign(socket, players: list_players(username))}
   end
+
+  # TODO: move the list_players logic to `tic_tac_toe` context?
 
   defp list_players() do
     Presence.list("players")
+    |> get_player_info()
+  end
+
+  defp list_players(username = username) do
+    Presence.list("players")
+    |> Enum.reject(fn {player_name, _metas} ->
+      player_name == username
+    end)
+    |> get_player_info
+  end
+
+  defp get_player_info(presence_list) do
+    presence_list
     |> Enum.map(fn {username, metas} ->
       username
     end)
