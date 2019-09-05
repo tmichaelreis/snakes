@@ -1,8 +1,10 @@
-<section class="row">
-  <%= form_for :player, Routes.player_path(@conn, :create), fn f -> %>
-    <label>
-      Choose Player Name: <%= text_input f, :name %>
-    </label>
-    <%= submit 'Submit' %>
-  <% end %>
+<section class="row row-center">
+  <div class="column column-center column-33 column-offset-33 centered">
+    <%= form_for :player, Routes.player_path(@conn, :create), fn f -> %>
+      <label>
+        Choose Player Name: <%= text_input f, :name %>
+      </label>
+      <%= submit 'Submit' %>
+    <% end %>
+  </div>
 </section>

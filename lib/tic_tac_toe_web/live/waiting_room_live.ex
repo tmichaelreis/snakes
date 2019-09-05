@@ -27,7 +27,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
         %{event: "presence_diff", payload: state},
         socket = %{assigns: %{username: username}}
       ) do
-    {:noreply, assign(socket, players: list_players(username))}
+    {:noreply, assign(socket, username: username, players: list_players(username))}
   end
 
   # TODO: move the list_players logic to `tic_tac_toe` context?
