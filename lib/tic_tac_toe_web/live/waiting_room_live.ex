@@ -11,7 +11,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
       self(),
       "players",
       user_id,
-      %{name: username, high_score: :rand.uniform(1000), wants_to_play_id: nil}
+      %{name: username, high_score: :rand.uniform(1000), opponent_id: nil}
     )
 
     TicTacToeWeb.Endpoint.subscribe("players")
@@ -31,9 +31,21 @@ defmodule TicTacToeWeb.WaitingRoomLive do
   end
 
   def handle_event("request-game", %{"opponent" => opponent_id}, socket) do
-    # TODO: update presence with wants_to_play_id
+    user_id = socket.assigns.user_id
+
+    %{metas: [%{name: name, high_score: high_score}]} =
+      TicTacToeWeb.Presence.get_by_key("players", user_id)
+
+    Presence.update(
+      self(),
+      "players",
+      socket.assigns.user_id,
+      %{name: name, high_score: high_score, opponent_id: opponent_id}
+    )
+
     # TODO: figure out player accept back and forth
-    {:noreply, socket}
+    {:noreply,
+     assign(socket, user_id: user_id, opponent_id: opponent_id, players: list_players(user_id))}
   end
 
   # TODO: move the list_players logic to `tic_tac_toe` context?

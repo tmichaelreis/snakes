@@ -5,7 +5,15 @@
       <li class="player-item">
         <div class="float-left"><%= player.data.name %></div>
         <div class="float-right">
-          <a phx-click="request-game" phx-value-opponent=<%= player.user_id %>><%= player.data.high_score %></a>
+          <%= cond do %>
+            <% player.data.opponent_id == assigns[:user_id] -> %>
+              <div>Wants to play</div>
+              <%= # TODO: Button to initiate game %>
+            <% player.user_id == assigns[:opponent_id] -> %>
+              <div>Game requested</div>
+            <% true -> %>
+              <a phx-click="request-game" phx-value-opponent=<%= player.user_id %>><%= player.data.high_score %></a>
+            <% end %>
         </div>
         <div class="clearfix"></div>
       </li>
