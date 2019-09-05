@@ -12,9 +12,9 @@ defmodule TicTacToeWeb.WaitingRoomController do
     # Assign username information etc. in layout
     # Pass this info to templates?
 
-    LiveView.Controller.live_render(
-      conn,
-      WaitingRoomLive,
+    conn
+    |> assign(:username, username)
+    |> LiveView.Controller.live_render(WaitingRoomLive,
       session: %{username: username}
     )
   end
