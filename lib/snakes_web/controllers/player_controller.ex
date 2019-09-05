@@ -1,6 +1,5 @@
 defmodule SnakesWeb.PlayerController do
   use SnakesWeb, :controller
-  require Logger
 
   def new(conn, _params) do
     case get_session(conn, :user_id) do

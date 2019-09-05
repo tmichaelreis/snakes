@@ -20,6 +20,7 @@ defmodule SnakesWeb.Router do
     get "/", PlayerController, :new
     post "/create", PlayerController, :create
     get "/waiting_room", WaitingRoomController, :index
+    get "/solo_game", SoloGameController, :show
   end
 
   # Other scopes may use custom stacks.
