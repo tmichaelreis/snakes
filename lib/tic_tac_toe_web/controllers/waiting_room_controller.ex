@@ -5,6 +5,7 @@ defmodule TicTacToeWeb.WaitingRoomController do
 
   def index(conn, _params) do
     username = get_session(conn, :username)
+    user_id = get_session(conn, :user_id)
 
     # TODO:
     # Render a LiveView layout (which renders a liveview template)
@@ -15,7 +16,7 @@ defmodule TicTacToeWeb.WaitingRoomController do
     conn
     |> assign(:username, username)
     |> LiveView.Controller.live_render(WaitingRoomLive,
-      session: %{username: username}
+      session: %{username: username, user_id: user_id}
     )
   end
 end

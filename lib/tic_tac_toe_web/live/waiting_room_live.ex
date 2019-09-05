@@ -6,7 +6,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
     TicTacToeWeb.WaitingRoomView.render("show.html", assigns)
   end
 
-  def mount(%{username: username}, socket) do
+  def mount(%{username: username, user_id: user_id}, socket) do
     Presence.track(
       self(),
       "players",
