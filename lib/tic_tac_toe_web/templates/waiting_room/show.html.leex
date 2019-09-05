@@ -1,9 +1,14 @@
 <section class="container list-container">
-  <h3>Users</h3>
+  <h3>Online now:</h3>
   <ul class="players-list">
-  <%= for player <- @players do %>
-    <li class="player-item">
-      <%= player %>
-    </li>
-  <% end %>
+    <%= for player <- @players do %>
+      <li class="player-item">
+        <div class="float-left"><%= player.data.name %></div>
+        <div class="float-right">
+          <a phx-click="request-game" phx-value-opponent=<%= player.user_id %>><%= player.data.high_score %></a>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+    <% end %>
+  </ul>
 </section>

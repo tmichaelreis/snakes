@@ -386,6 +386,7 @@ a {
 }
 a:focus,
 a:hover {
+  cursor: pointer;
   color: #606c76;
 }
 dl,
