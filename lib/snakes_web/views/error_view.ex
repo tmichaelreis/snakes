@@ -1,5 +1,5 @@
-defmodule TicTacToeWeb.ErrorView do
-  use TicTacToeWeb, :view
+defmodule SnakesWeb.ErrorView do
+  use SnakesWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

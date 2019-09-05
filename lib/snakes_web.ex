@@ -1,12 +1,12 @@
-defmodule TicTacToeWeb do
+defmodule SnakesWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use TicTacToeWeb, :controller
-      use TicTacToeWeb, :view
+      use SnakesWeb, :controller
+      use SnakesWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule TicTacToeWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: TicTacToeWeb
+      use Phoenix.Controller, namespace: SnakesWeb
 
       import Plug.Conn
-      import TicTacToeWeb.Gettext
-      alias TicTacToeWeb.Router.Helpers, as: Routes
+      import SnakesWeb.Gettext
+      alias SnakesWeb.Router.Helpers, as: Routes
 
       import Phoenix.LiveView.Controller, only: [live_render: 3]
     end
@@ -32,8 +32,8 @@ defmodule TicTacToeWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/tic_tac_toe_web/templates",
-        namespace: TicTacToeWeb
+        root: "lib/snakes_web/templates",
+        namespace: SnakesWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -41,9 +41,9 @@ defmodule TicTacToeWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import TicTacToeWeb.ErrorHelpers
-      import TicTacToeWeb.Gettext
-      alias TicTacToeWeb.Router.Helpers, as: Routes
+      import SnakesWeb.ErrorHelpers
+      import SnakesWeb.Gettext
+      alias SnakesWeb.Router.Helpers, as: Routes
 
       import Phoenix.LiveView, only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2]
     end
@@ -62,7 +62,7 @@ defmodule TicTacToeWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import TicTacToeWeb.Gettext
+      import SnakesWeb.Gettext
     end
   end
 

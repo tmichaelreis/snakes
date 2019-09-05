@@ -8,11 +8,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :tic_tac_toe, TicTacToeWeb.Endpoint,
+config :snakes, SnakesWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "IAiNvZXlVi1LrMIhxUU7gCEzlAv7rUBeAvbSwkTgHDN4xEYD7s6L2lAWgqrHmtL2",
-  render_errors: [view: TicTacToeWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: TicTacToe.PubSub, adapter: Phoenix.PubSub.PG2],
+  render_errors: [view: SnakesWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Snakes.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [signing_salt: "6/aK48SDvqTEQHLpSi4KGuk5kSROlP/W"]
 
 # Configures Elixir's Logger

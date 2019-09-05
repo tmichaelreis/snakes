@@ -1,7 +1,7 @@
-defmodule TicTacToeWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :tic_tac_toe
+defmodule SnakesWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :snakes
 
-  socket "/socket", TicTacToeWeb.UserSocket,
+  socket "/socket", SnakesWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -13,7 +13,7 @@ defmodule TicTacToeWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :tic_tac_toe,
+    from: :snakes,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -41,8 +41,8 @@ defmodule TicTacToeWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_tic_tac_toe_key",
+    key: "_snakes_key",
     signing_salt: "Syt1iHNA"
 
-  plug TicTacToeWeb.Router
+  plug SnakesWeb.Router
 end

@@ -1,5 +1,5 @@
-defmodule TicTacToeWeb.Router do
-  use TicTacToeWeb, :router
+defmodule SnakesWeb.Router do
+  use SnakesWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,7 +14,7 @@ defmodule TicTacToeWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", TicTacToeWeb do
+  scope "/", SnakesWeb do
     pipe_through :browser
 
     get "/", PlayerController, :new
@@ -23,7 +23,7 @@ defmodule TicTacToeWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TicTacToeWeb do
+  # scope "/api", SnakesWeb do
   #   pipe_through :api
   # end
 end

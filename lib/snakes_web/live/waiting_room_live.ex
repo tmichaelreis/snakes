@@ -1,9 +1,9 @@
-defmodule TicTacToeWeb.WaitingRoomLive do
+defmodule SnakesWeb.WaitingRoomLive do
   use Phoenix.LiveView
-  alias TicTacToeWeb.Presence
+  alias SnakesWeb.Presence
 
   def render(assigns) do
-    TicTacToeWeb.WaitingRoomView.render("show.html", assigns)
+    SnakesWeb.WaitingRoomView.render("show.html", assigns)
   end
 
   def mount(%{username: username, user_id: user_id}, socket) do
@@ -14,7 +14,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
       %{name: username, high_score: :rand.uniform(1000), opponent_id: nil}
     )
 
-    TicTacToeWeb.Endpoint.subscribe("players")
+    SnakesWeb.Endpoint.subscribe("players")
 
     {:ok,
      assign(socket,
@@ -34,7 +34,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
     user_id = socket.assigns.user_id
 
     %{metas: [%{name: name, high_score: high_score}]} =
-      TicTacToeWeb.Presence.get_by_key("players", user_id)
+      SnakesWeb.Presence.get_by_key("players", user_id)
 
     Presence.update(
       self(),
@@ -48,7 +48,7 @@ defmodule TicTacToeWeb.WaitingRoomLive do
      assign(socket, user_id: user_id, opponent_id: opponent_id, players: list_players(user_id))}
   end
 
-  # TODO: move the list_players logic to `tic_tac_toe` context?
+  # TODO: move the list_players logic to `snakes` context?
 
   defp list_players() do
     Presence.list("players")

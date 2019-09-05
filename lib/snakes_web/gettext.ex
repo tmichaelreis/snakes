@@ -1,11 +1,11 @@
-defmodule TicTacToeWeb.Gettext do
+defmodule SnakesWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import TicTacToeWeb.Gettext
+      import SnakesWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule TicTacToeWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :tic_tac_toe
+  use Gettext, otp_app: :snakes
 end

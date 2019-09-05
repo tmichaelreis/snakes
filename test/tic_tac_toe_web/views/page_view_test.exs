@@ -1,3 +1,3 @@
-defmodule TicTacToeWeb.PageViewTest do
-  use TicTacToeWeb.ConnCase, async: true
+defmodule SnakesWeb.PageViewTest do
+  use SnakesWeb.ConnCase, async: true
 end

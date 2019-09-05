@@ -1,9 +1,9 @@
-defmodule TicTacToe.MixProject do
+defmodule Snakes.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :tic_tac_toe,
+      app: :snakes,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule TicTacToe.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {TicTacToe.Application, []},
+      mod: {Snakes.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

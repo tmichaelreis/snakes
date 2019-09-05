@@ -1,7 +1,7 @@
-defmodule TicTacToeWeb.WaitingRoomController do
-  use TicTacToeWeb, :controller
+defmodule SnakesWeb.WaitingRoomController do
+  use SnakesWeb, :controller
   alias Phoenix.LiveView
-  alias TicTacToeWeb.WaitingRoomLive
+  alias SnakesWeb.WaitingRoomLive
 
   def index(conn, _params) do
     username = get_session(conn, :username)

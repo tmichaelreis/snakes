@@ -1,5 +1,5 @@
-defmodule TicTacToeWeb.PlayerController do
-  use TicTacToeWeb, :controller
+defmodule SnakesWeb.PlayerController do
+  use SnakesWeb, :controller
   require Logger
 
   def new(conn, _params) do

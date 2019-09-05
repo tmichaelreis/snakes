@@ -1,4 +1,4 @@
-defmodule TicTacToeWeb.Presence do
+defmodule SnakesWeb.Presence do
   @moduledoc """
   Provides presence tracking to channels and processes.
 
@@ -9,9 +9,9 @@ defmodule TicTacToeWeb.Presence do
 
   Presences can be tracked in your channel after joining:
 
-      defmodule TicTacToe.MyChannel do
-        use TicTacToeWeb, :channel
-        alias TicTacToeWeb.Presence
+      defmodule Snakes.MyChannel do
+        use SnakesWeb, :channel
+        alias SnakesWeb.Presence
 
         def join("some:topic", _params, socket) do
           send(self(), :after_join)
@@ -68,6 +68,7 @@ defmodule TicTacToeWeb.Presence do
   information, while maintaining the required `:metas` field from the
   original presence data.
   """
-  use Phoenix.Presence, otp_app: :tic_tac_toe,
-                        pubsub_server: TicTacToe.PubSub
+  use Phoenix.Presence,
+    otp_app: :snakes,
+    pubsub_server: Snakes.PubSub
 end

@@ -1,4 +1,4 @@
-defmodule TicTacToeWeb.ErrorHelpers do
+defmodule SnakesWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule TicTacToeWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(TicTacToeWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SnakesWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(TicTacToeWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SnakesWeb.Gettext, "errors", msg, opts)
     end
   end
 end

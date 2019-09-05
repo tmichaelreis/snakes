@@ -1,6 +1,6 @@
-defmodule TicTacToe do
+defmodule Snakes do
   @moduledoc """
-  TicTacToe keeps the contexts that define your domain
+  Snakes keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
